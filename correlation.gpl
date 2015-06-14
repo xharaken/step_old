@@ -1,0 +1,15 @@
+set terminal postscript eps noenhanced color 28
+set output "correlation.eps"
+set size 2
+set key top left
+set xlabel "Number of incoming links"
+set ylabel "Pagerank"
+set grid
+set logscale x
+set logscale y
+set xrange [0.1:]
+set yrange [0.1:]
+set pointsize 1
+plot "correlation.txt" u 1:2 w p notitle
+
+
