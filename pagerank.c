@@ -226,9 +226,6 @@ void read_pagefile(char *filename) { // ファイルからページ情報を読�
       return; // 終了
     } else { // データがあったなら
       int length = strlen(buffer);
-      if (length >= 200) {
-        printf("%s\n", buffer);
-      }
       if (length == 1023) {
         printf("なんか見出し語が長すぎ\n");
         exit(1);
