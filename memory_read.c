@@ -36,9 +36,9 @@ int main(int argc, char** argv)
   }
 
   for (i = 0; i < n; i++) {
-    b[i] = 0;
-    // b[i] = i;
-    // b[i] = random_int(0, n);
+    //b[i] = 0;
+    //b[i] = i;
+    b[i] = random_int(0, n);
   }
 
   double begin = get_time();
