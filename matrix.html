@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<body>
+<script src="matrix.js"></script>
+<div>
+N: <input type=text id="n"></input><br>
+<input type=button id="button" value="Start"></input>
+</div>
+<script>
+var button = document.getElementById("button");
+button.addEventListener("click", function () {
+  console.log("click");
+  matrix_multiply(document.getElementById("n").value);
+});
+</script>
+<div id="result"></div>
+</body>
+</html>
