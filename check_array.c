@@ -15,6 +15,9 @@ int main(int argc, char** argv)
     printf("error: Cannot open file %s\n", filename);
     exit(1);
   }
+  fseek(fp, 0, SEEK_END);
+  size_t file_size = ftell(fp);
+  fseek(fp, 0, SEEK_SET);
 
   int current = 0;
   int num = 1000 * 1000 / sizeof(int);
@@ -24,7 +27,7 @@ int main(int argc, char** argv)
     if (ret == 0)
       break;
     int i;
-    for (i = 0; i < num; i++) {
+    for (i = 0; i < ret; i++) {
       if (buffer[i] < current) {
         printf("Error: The array is not sorted. %d => %d is found.\n", current, buffer[i]);
         exit(1);
@@ -39,6 +42,6 @@ int main(int argc, char** argv)
     exit(1);
   }
 
-  printf("OK: The array is correctly sorted!\n");
+  printf("OK: The array is correctly sorted! File size is %.2lf MB\n", file_size / 1000.0 / 1000.0);
   return 0;
 }
