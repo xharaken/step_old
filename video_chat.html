@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body>
+<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+<script src="video_chat.js"></script>
+<h1>Simple Chat System</h1>
+<div>Your ID is <b><span id="id"></span></b></div>
+<hr>
+
+<div>Connection status: <span id="connection_status"></span>
+</div>
+<hr>
+
+<div>Enter the ID you want to call:
+<input type="text" id="call_id"></input>
+<input type="button" id="call_button" value="Call"></input>
+</div>
+<hr>
+
+<div>
+Enter the message you want to send:
+<input type="text" id="send_message" size="50"></input>
+<input type="button" id="send_button" value="Send"></input>
+</div>
+<hr>
+
+<div>
+Message log:
+<div id="message_log"></div>
+</div>
+</body>
+</html>
