@@ -23,15 +23,9 @@ class Matrix {
 
     long begin = System.currentTimeMillis();
 
-    // Write code to calculate C = A * B.
-    int k;
-    for (i = 0; i < n; i++) {
-      for (j = 0; j < n; j++) {
-        for (k = 0; k < n; k++) {
-          c[i][j] += a[i][k] * b[k][j];
-        }
-      }
-    }
+    /**************************************/
+    /* Write code to calculate C = A * B. */
+    /**************************************/
 
     long end = System.currentTimeMillis();
     System.out.printf("time: %.6f sec\n", (end - begin) / 1000.0);

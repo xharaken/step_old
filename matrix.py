@@ -18,11 +18,9 @@ for i in xrange(n):
 
 begin = time.time()
 
-# Write code to calculate C = A * B.
-for i in xrange(n):
-    for j in xrange(n):
-        for k in xrange(n):
-            c[i, j] += a[i, k] * b[k, j]
+######################################
+# Write code to calculate C = A * B. #
+######################################
 
 end = time.time()
 print "time: %.6f sec" % (end - begin)

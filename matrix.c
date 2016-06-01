@@ -33,15 +33,9 @@ int main(int argc, char** argv)
 
   double begin = get_time();
 
-  // Write code to calculate C = A * B.
-  int k;
-  for (i = 0; i < n; i++) {
-    for (j = 0; j < n; j++) {
-      for (k = 0; k < n; k++) {
-        c[i * n + j] += a[i * n + k] * b[k * n + j];
-      }
-    }
-  }
+  /**************************************/
+  /* Write code to calculate C = A * B. */
+  /**************************************/
 
   double end = get_time();
   printf("time: %.6lf sec\n", end - begin);
