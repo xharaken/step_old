@@ -39,17 +39,18 @@ def binary_search(array, target):
 # Read input data
 print "Array: ",
 array = map(int, raw_input().split())
-print "Number:",
-target = int(raw_input())
 
 # Sort the array
 sort(array)
 
-# Search if the target number is contained or not
-found = binary_search(array, target)
+while True:
+    print "Number:",
+    target = int(raw_input())
 
-if found:
-    print "Found\n"
-else:
-    print "Not found\n"
+    # Search if the target number is contained or not
+    found = binary_search(array, target)
+    if found:
+        print "Found"
+    else:
+        print "Not found"
 
