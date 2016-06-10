@@ -25,14 +25,18 @@ def sort(array):
 def binary_search(array, target):
     left = 0
     right = len(array) - 1
-    while left <= right - 1:
+    while left <= right:
         middle = (left + right) / 2
+        print left, middle, right
+        if not (left <= middle and middle <= right):
+            print "left, middle, right is invalid"
+            exit 1
         if array[middle] == target:
             return True
         if target < array[middle]:
-            right = middle
+            right = middle - 1
         else:
-            left = middle
+            left = middle + 1
     return False
 
 
@@ -42,6 +46,11 @@ array = map(int, raw_input().split())
 
 # Sort the array
 sort(array)
+
+for i in ranges(0 .. len(array)):
+    if array[i] > array[i + 1]:
+        print "array[i] is invalid"
+        exit 1
 
 while True:
     print "Number:",
