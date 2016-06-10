@@ -25,9 +25,6 @@ def readMinus(line, index):
 
 
 def tokenize(line):
-    """
-    Tokenize the input line and return a list of tokens
-    """
     tokens = []
     index = 0
     while index < len(line):
@@ -45,9 +42,6 @@ def tokenize(line):
 
 
 def evaluate(tokens):
-    """
-    Evaluate the list of tokens and return a calculated result
-    """
     answer = 0
     tokens.insert(0, {'type': 'PLUS'}) # Insert a dummy '+' token
     index = 1
