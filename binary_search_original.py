@@ -1,5 +1,3 @@
-import sys
-
 def quick_sort(array, left, right):
     pivot = array[(left + right) / 2]
     i = left
