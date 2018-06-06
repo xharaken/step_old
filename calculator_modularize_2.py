@@ -1,3 +1,5 @@
+import sys
+
 def readNumber(line, index):
     number = 0
     while index < len(line) and line[index].isdigit():
@@ -35,7 +37,7 @@ def tokenize(line):
         elif line[index] == '-':
             (token, index) = readMinus(line, index)
         else:
-            print 'Invalid character found: ' + line[index]
+            print('Invalid character found: ' + line[index])
             exit(1)
         tokens.append(token)
     return tokens
@@ -52,7 +54,7 @@ def evaluate(tokens):
             elif tokens[index - 1]['type'] == 'MINUS':
                 answer -= tokens[index]['number']
             else:
-                print 'Invalid syntax'
+                print('Invalid syntax')
         index += 1
     return answer
 
@@ -61,23 +63,23 @@ def test(line, expectedAnswer):
     tokens = tokenize(line)
     actualAnswer = evaluate(tokens)
     if abs(actualAnswer - expectedAnswer) < 1e-8:
-        print "PASS! (%s = %f)" % (line, expectedAnswer)
+        print("PASS! (%s = %f)" % (line, expectedAnswer))
     else:
-        print "FAIL! (%s should be %f but was %f)" % (line, expectedAnswer, actualAnswer)
+        print("FAIL! (%s should be %f but was %f)" % (line, expectedAnswer, actualAnswer))
 
 
 # Add more tests to this function :)
 def runTest():
-    print "==== Test started! ===="
+    print("==== Test started! ====")
     test("1+2", 3)
     test("1.0+2.1-3", 0.1)
-    print "==== Test finished! ====\n"
+    print("==== Test finished! ====\n")
 
 runTest()
 
 while True:
-    print '> ',
-    line = raw_input()
+    sys.stdout.write('> ')
+    line = str(input())
     tokens = tokenize(line)
     answer = evaluate(tokens)
-    print "answer = %f\n" % answer
+    print("answer = %f\n" % answer)
