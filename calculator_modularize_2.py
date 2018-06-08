@@ -1,16 +1,16 @@
 def readNumber(line, index):
     number = 0
-    while index < len(line) and line[index].isdigit():
-        number = number * 10 + int(line[index])
+    flag = 0
+    keta = 1
+    while index < len(line) and (line[index].isdigit() or line[index] == '.'):
+        if line[index] == '.':
+            flag = 1
+        else:
+            number = number * 10 + int(line[index])
+            if flag == 1:
+                keta *= 0.1
         index += 1
-    if index < len(line) and line[index] == '.':
-        index += 1
-        keta = 0.1
-        while index < len(line) and line[index].isdigit():
-            number += int(line[index]) * keta
-            keta *= 0.1
-            index += 1
-    token = {'type': 'NUMBER', 'number': number}
+    token = {'type': 'NUMBER', 'number': number * keta}
     return token, index
 
 
