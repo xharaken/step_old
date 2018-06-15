@@ -1,3 +1,6 @@
+#! /usr/bin/python3
+# Run this program with python3 (not python2)
+
 def readNumber(line, index):
   number = 0
   flag = 0
@@ -10,7 +13,7 @@ def readNumber(line, index):
       if flag == 1:
         keta *= 0.1
     index += 1
-  token = {'type': 'NUMBER', 'number': number * keta}
+  token = {'type': 'NUMBER', 'number': float(number * keta)}
   return token, index
 
 
@@ -63,7 +66,7 @@ def tokenize(line):
     elif line[index] == ')':
       (token, index) = readRight(line, index)
     else:
-      print 'Invalid character found: ' + line[index]
+      print('Invalid character found: ' + line[index])
       exit(1)
     tokens.append(token)
   return tokens
@@ -80,7 +83,7 @@ def evaluateTerm(tokens, index):
     else:
       (number, index) = evaluateFactor(tokens, index + 1)
       if number == 0:
-        print 'Error: Division by 0'
+        print('Error: Division by 0')
         exit(1)
       result /= number
   return (result, index)
@@ -108,9 +111,9 @@ def evaluateFactor(tokens, index):
     (number, index) = evaluateExpression(tokens, index + 1)
     if tokens[index]['type'] == 'RIGHT':
       return (number, index + 1)
-    print 'Parse error'
+    print('Parse error')
     exit(1)
-  print 'Parse error'
+  print('Parse error')
   exit(1)
 
 
@@ -125,14 +128,14 @@ def test(line):
     actualAnswer = evaluate(tokens)
     expectedAnswer = eval(line)
     if abs(actualAnswer - expectedAnswer) < 1e-8:
-        print "PASS! (%s = %f)" % (line, expectedAnswer)
+        print("PASS! (%s = %f)" % (line, expectedAnswer))
     else:
-        print "FAIL! (%s should be %f but was %f)" % (line, expectedAnswer, actualAnswer)
+        print("FAIL! (%s should be %f but was %f)" % (line, expectedAnswer, actualAnswer))
 
 
 # Add more tests to this function :)
 def runTest():
-    print "==== Test started! ===="
+    print("==== Test started! ====")
     test("1")
     test("11")
     test("2+3")
@@ -171,13 +174,13 @@ def runTest():
     test("1-(2-(3-(4-5)-6)-7)-8")
     test("(1+2)*3-4/(5-(6-7*8+9/(10-11)*12))")
     test("(1.1+2.2)*3.3-4.4/(5.5-(6.5-7.7*8.8+9.9/(10.0-11.1)*12.2))")
-    print "==== Test finished! ====\n"
+    print("==== Test finished! ====\n")
 
 runTest()
 
 while True:
-    print '> ',
-    line = raw_input()
+    print('> ')
+    line = input()
     tokens = tokenize(line)
     answer = evaluate(tokens)
-    print "answer = %f\n" % answer
+    print("answer = %f\n" % answer)
