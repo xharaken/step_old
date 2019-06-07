@@ -1,5 +1,5 @@
 def quick_sort(array, left, right):
-    pivot = array[(left + right) / 2]
+    pivot = array[int((left + right) / 2)]
     i = left
     j = right
     while True:
@@ -26,7 +26,7 @@ def binary_search(array, target):
     left = 0
     right = len(array) - 1
     while left <= right - 1:
-        middle = (left + right) / 2
+        middle = int((left + right) / 2)
         if array[middle] == target:
             return True
         if target < array[middle]:
@@ -37,19 +37,19 @@ def binary_search(array, target):
 
 
 # Read input data
-print "Array: ",
-array = map(int, raw_input().split())
+print("Array: ", end="")
+array = list(map(int, input().split()))
 
 # Sort the array
 sort(array)
 
 while True:
-    print "Number:",
-    target = int(raw_input())
+    print("Number:", end="")
+    target = int(input())
 
     # Search if the target number is contained or not
     found = binary_search(array, target)
     if found:
-        print "Found"
+        print("Found")
     else:
-        print "Not found"
+        print("Not found")
